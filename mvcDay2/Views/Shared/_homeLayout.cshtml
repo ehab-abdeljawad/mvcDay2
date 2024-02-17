@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <section id="works" class="works">
+        <div class="container">
+            <div class="section-header">
+                <h2>how it works</h2>
+                <p>Learn More about how our website works</p>
+            </div><!--/.section-header-->
+            <div class="works-content">
+                <div class="row">
+                    <h1 style="color:red;">@RenderSection("home", required: false)</h1>
+                    @RenderBody()
+
+
+                </div>
+            </div>
+        </div><!--/.container-->
+
+    </section>
+    <div>
+    <footer class="bg-body-tertiary">
+
+        <div class="container-fluid p-4 bg-secondary text-light">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0 ">
+                    <h5 class="text-uppercase ">Footer Content</h5>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+
+                    </p>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <span class="">
+                                <i class="bi bi-geo-alt"></i>
+                            </span>
+                            <span>
+                                chicago ,us
+                            </span>
+                        </li>
+                        <li>
+                            <span class="">
+                                <i class="bi bi-phone"></i>
+                            </span>
+                            <span>
+                                777-888-999
+                            </span>
+                        </li>
+                        <li>
+                            <span class="">
+                                <i class="bi bi-envelope-at"></i>
+                            </span>
+                            <span>
+                                con1245@gmail.com
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+
+
+                <div class="col-lg-6 col-md-3 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-0">concat us </h5>
+                    <div class="container"></div>
+                    <div class="row"></div>
+                    <div class="col-lg-6">
+                        <label for="exampleFormControlInput1" class="form-label">user </label>
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                            <input type="text" id="email" class="form-control" placeholder="user_name" />
+                        </span>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <span class="input-group-text">
+                            <i class="bi bi-envelope-fill"></i>
+                            <input type="text" id="email" class="form-control" placeholder="e.g. mario@example.com" />
+                        </span>
+
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">commment</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-outline-danger">send</button>
+                </div>
+
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+                    © 2020 Copyright:
+                    <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                </div>
+
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

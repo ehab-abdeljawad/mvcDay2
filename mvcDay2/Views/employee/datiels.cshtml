@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model employee
+@{
+    //Layout = "_homeLayout";
+    Layout = "_Layout1";
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+
+@if(Model is null)
+{
+    <h1>student is not vaild</h1>
+}
+else
+{
+    <div class="col-md-6 col-sm-12">
+        <div class="single-how-works">
+            <div class="single-how-works-icon">
+                <i class="flaticon-lightbulb-idea"></i>
+            </div>
+            <h2>@Model.fname @Model.lname</h2>
+            <p>@Model.address</p>
+            <p>@Model.salary</p>
+            <p>@Model.sex</p>
+            <button class="welcome-hero-btn how-work-btn btn-success" onclick="window.location.href='#'">
+                <a href="http://localhost:5052/employee/index">Back</a>
+            </button>
+        </div>
+    </div>
+    
+}
+<h2> <a href="http://localhost:5052/employee/index" style="color:forestgreen">back</a></h2>
+@section home{
+    @Model.fname @Model.lname
+}

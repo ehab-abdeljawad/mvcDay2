@@ -1,0 +1,31 @@
+﻿
+@model Departments
+
+@{
+    Layout = "_Layout1";
+    int i = 0;
+    
+}
+
+
+
+<form asp-controller="department" asp-action="add">
+    <div class="mb-3">
+        <label asp-for="Dname" class="form-label"></label>
+        <input asp-for="Dname" type="text" class="form-control">
+
+    </div>
+   
+    <div class="mb-3 form-check">
+        <label asp-for="Mgssn"  class="form-label"></label>
+        <select asp-for="Mgssn" class="form-select" >
+            @foreach (var item in ViewBag.mangeemp)
+            {
+
+                <option value="@item.Ssn">@item.fname</option>
+            }
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

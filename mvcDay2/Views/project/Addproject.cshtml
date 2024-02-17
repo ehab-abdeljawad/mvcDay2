@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model List<Departments>
+
+@{
+    Layout = "_Layout1";
+}
+
+<form action="/project/Addprojectdb">
+  <div class="mb-3">
+    <label for="pname" class="form-label">project Name</label>
+    <input type="text" class="form-control" id="pname" aria-describedby="emailHelp" name="name">
+    
+  </div>
+  <div class="mb-3">
+    <label for="laction" class="form-label">Location</label>
+    <input type="text" class="form-control" id="location" name="Location">
+  </div>
+  <div class="mb-3 form-check">
+    <label for="city" class="form-label">City</label>
+    <input type="text" class="form-control" id="city" name="city">
+  </div>
+   <div class="mb-3 form-check">
+        <label  class="form-label">Select Department</label>
+       <select class="form-select" aria-label="Default select example" name="dept">
+        @foreach(var item in Model){
+
+       <option value="@item.Dnum">@item.Dname</option>
+        }
+</select>
+    
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

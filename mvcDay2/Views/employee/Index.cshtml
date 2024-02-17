@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using mvcDay2.viewmodel
+@model employeedeptmodelview
+
+@{
+   // Layout = "_homeLayout";
+    Layout = "_Layout1";
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+<div class="container">
+   @*  <h1>@ViewData["name"]</h1>
+    @foreach(var item in (List<Departments>)ViewData["dept"])
+    {
+        <button class="btn btn-success">@item.Dname</button>
+        
+     *@}
+
+      <h1>@Model.name</h1>
+    @foreach (var item in Model.Departments)
+    {
+        <button class="btn btn-danger">@item.Dname</button>
+    } 
+</div>
+
+@foreach(var item in Model.employees){
+<div class="col-md-4 col-sm-6">
+    <div class="single-how-works">
+        <div class="single-how-works-icon">
+            <i class="flaticon-lightbulb-idea"></i>
+        </div>
+        <h2>@item.fname @item.lname</h2>
+        <p>@item.address</p>
+            <p>@item.salary</p>
+            <p>@item.sex</p>
+        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+                <a href="http://localhost:5052/employee/datiels/@item.Ssn">Details</a>
+        </button>
+    </div>
+</div>
+}
+<table class="table">
+    <thead class="table-dark">
+    <th>SSn</th>
+    <th>fname</th>
+    <th>lname</th>
+    <th>Brith Date</th>
+    <th>Gender</th>
+    <th>Details</th>
+
+    </thead>
+    <tbody>
+  @foreach(var item in Model.employees){
+        <tr>
+            <td>@(i++)</td>
+            <td>@item.fname</td>
+                <td>@item.lname</td>
+                <td>@item.Bdate</td>
+                <td>@item.sex</td>
+                <td><a href="http://localhost:5052/employee/datiels/@item.Ssn"><i class="fa-solid fa-info"></i> </a></td>
+        </tr>
+  }
+    </tbody>
+</table>
+
+@section home{
+    Employees
+}

@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Project
+@{
+    Layout = "_Layout1";
+}
+
+@if (Model is null)
+{
+    <h1>student is not vaild</h1>
+}
+else
+{
+    <div class="col-md-6 col-sm-12">
+        <div class="single-how-works">
+            <div class="single-how-works-icon">
+                <i class="flaticon-lightbulb-idea"></i>
+            </div>
+            <h2>@Model.Name</h2>
+            <p>@Model.locations</p>
+            <p>@Model.city</p>
+            <p>@Model?.Departments.Dname</p>
+            <button class="welcome-hero-btn how-work-btn btn-success" onclick="window.location.href='#'">
+                <a href="http://localhost:5052/employee/Display">Back</a>
+            </button>
+        </div>
+    </div>
+
+}

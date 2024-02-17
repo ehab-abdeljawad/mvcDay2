@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Departments>
+@{
+    Layout = "_Layout1";
+    int i = 0;
+}
+
+<table class="table">
+
+    <thead class="table-dark">
+
+    <th>ID</th>
+    <th>name</th>
+    <th>locations</th>
+    <th>City</th>
+    <th>Departments</th>
+    <th>process</th>
+    <th><button class="btn btn-success"><a asp-controller="department" asp-action="addform">Add</a></button></th>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(i++)</td>
+                <td>@item.Dname</td>
+                <td>@item</td>
+                
+                <td>@item?.mangeemp.fname</td>
+                <td><button class="btn btn-success"><a asp-controller="department" asp-action="editform" asp-route-id="@item.Dnum">Edit</a></button></td>
+                <td><button class="btn btn-danger"><a asp-controller="department" asp-action="delete" asp-route-id="@item.Dnum">Delete</a></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

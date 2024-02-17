@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Project>
+@{
+    Layout = "_Layout1";
+    int i = 0;
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4 col-sm-6">
+        <div class="single-how-works">
+            <div class="single-how-works-icon">
+                <i class="flaticon-lightbulb-idea"></i>
+            </div>
+            <h2>@item.Name </h2>
+            <p>@item.locations</p>
+            <p>@item.city</p>
+            <p>@item?.Departments.Dname</p>
+            <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+                <a href="http://localhost:5052/project/Displayproject/@item.Id">Details</a>
+            </button>
+        </div>
+    </div>
+}
+
+<div>
+
+
+
+
+
+<table class="table">
+        
+        <thead class="table-dark">
+           
+    <th>ID</th>
+    <th>name</th>
+    <th>locations</th>
+    <th>City</th>
+    <th>Departments</th>
+    <th>process</th>
+        <th><button class="btn btn-success"><a href="/project/Addproject">Add</a></button></th>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(i++)</td>
+                <td>@item.Name</td>
+                <td>@item.locations</td>
+                <td>@item.city</td>
+                <td>@item?.Departments.Dname</td>
+                    <td><button class="btn btn-success"><a href="/project/Editprojectform/@item.Id">Edit</a></button></td>
+                    <td><button class="btn btn-danger"><a href="/project/Deleteproject/@item.Id">Delete</a></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

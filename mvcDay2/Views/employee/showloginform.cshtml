@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@{
+    // Layout = "_homeLayout";
+    Layout = "_Layout1";
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+
+@model employee
+
+<form asp-controller="employee" asp-action="checklogin">
+    <div class="mb-3">
+        <label asp-for="fname" class="form-label"></label>
+        <input asp-for="fname" class="form-control">
+        <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Ssn" class="form-label"></label>
+        <input asp-for="Ssn" class="form-control" >
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

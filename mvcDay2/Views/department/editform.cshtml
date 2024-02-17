@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Departments
+@{
+    Layout = "_Layout1";
+    SelectList list = new SelectList(ViewBag.mangeemp, "Ssn", "fname");
+}
+
+
+<form asp-controller="department" asp-action="edit">
+    <input hidden asp-for="Dnum" />
+    <div class="mb-3">
+        <label asp-for="Dname" class="form-label"></label>
+        <input asp-for="Dname" type="text" class="form-control">
+
+    </div>
+
+    <div class="mb-3 form-check">
+        <label asp-for="Mgssn" class="form-label"></label>
+        <select asp-for="Mgssn" class="form-select" asp-items="list">
+           
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
