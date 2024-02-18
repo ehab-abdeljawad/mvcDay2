@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@using mvcDay2.viewmodel
+@model List<Work_for>
+
+@{
+    // Layout = "_homeLayout";
+    Layout = "_Layout1";
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+
+<table class="table">
+    <caption><h1>@ViewBag.name</h1></caption>
+    <thead class="table-dark">
+    <th>id</th>
+    <th>project</th>
+
+    <th>hours</th>
+
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(i++)</td>
+                <td>@item.Project.Name</td>
+                <td style="color:@ViewBag.hours[i-2]">@item.Houres</td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

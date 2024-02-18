@@ -124,10 +124,18 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-							<li class=" scroll active"><a href="/employee/index">Employee</a></li>
-							<li class="scroll"><a href="/project/Display">project</a></li>
-							<li class="scroll"><a href="/department/Index">Departments</a></li>
-							<li class="scroll"><a href="#reviews">review</a></li>
+						@if(Context.Session.GetInt32("id") != null)
+						{
+							
+								<li class=" scroll active"><a href="/employee/index">Employee</a></li>
+								<li class="scroll"><a href="/project/Display">project</a></li>
+								<li class="scroll"><a href="/department/Index">Departments</a></li>
+								<li class="scroll"><a asp-controller="workfor" asp-action="showhours">project Hours</a></li>
+							}
+						
+						
+						 
+							
 							<li class="scroll"><a href="#blog">blog</a></li>
 							<li class="scroll"><a href="#contact">contact</a></li>
 						</ul><!--/.nav -->
