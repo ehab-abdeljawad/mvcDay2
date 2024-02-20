@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using mvcDay2.Models;
 using mvcDay2.viewmodel;
 
@@ -66,7 +67,48 @@ namespace mvcDay2.Controllers
 
 			return RedirectToAction("showloginform");
 		}
+        //get the page view form
+        [HttpGet]
+        public IActionResult addform()
+        {
+            employeevaild emp = new employeevaild()
+            {
+                departments = new SelectList(banhacontext.departments, nameof(Departments.Dnum), nameof(Departments.Dname))
+                
 
+            };
+            
+            return View(emp);
+        }
         
+        [HttpPost]
+       
+        [ValidateAntiForgeryToken]
+        public IActionResult addform(employeevaild emp)
+        {
+            if (ModelState.IsValid)
+            {
+                employee employee = new employee();
+                
+                employee.fname = emp.fname;
+                employee.lname = emp.lname;
+                employee.address = emp.address;
+                employee.Dno = emp.Dno;
+                employee.salary = emp.salary;
+                employee.sex = emp.sex;
+                employee.superid = emp.superid;
+                employee.Bdate = emp.Bdate;
+                 
+                banhacontext.employees.Add(employee);
+                banhacontext.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            List<Departments> dept = banhacontext.departments.ToList();
+            emp.departments = new SelectList(dept, "Dnum", "Dname");
+            
+            return View(emp);
+        }
+
     }
 }

@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+
+    Layout = "_Layout1";
+    ViewData["Title"] = "Index";
+    int i = 1;
+
+    SelectList list = new SelectList(ViewBag.projects, "Id", "Name");
+
+}
+
+@model Work_for
+for
+<div class="mb-3">
+    <label   class="form-label">username</label>
+    <input  class="form-control" value="@ViewBag.name.fname  @ViewBag.name.lname">
+
+</div>
+
+<div class="mb-3">
+    <select asp-for="pno" asp-items="list" onchange="getManger(this.value,@ViewBag.name.Ssn)">
+
+   </select>
+
+</div>
+<div id="hour">
+
+
+</div>
+
+@section  script{
+
+   
+     
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/javascript.js"></script>
+
+    
+     
+}

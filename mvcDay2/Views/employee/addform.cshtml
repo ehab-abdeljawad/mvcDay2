@@ -1,0 +1,102 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using  mvcDay2.viewmodel
+
+@{
+    // Layout = "_homeLayout";
+    Layout = "_Layout1";
+    ViewData["Title"] = "Index";
+    int i = 1;
+
+    //SelectList list = new SelectList(ViewBag.departments, "Dnum", "Dname");
+    // SelectList list2 = new SelectList(ViewBag.gender);
+}
+
+@model employeevaild
+
+@* employee add form *@
+<div asp-validation-summary="All" style="color:red"></div>
+<form asp-action="addform" asp-controller="employee" method="post">
+    <div class="mb-3">
+        <label asp-for="fname" class="form-label"></label>
+        <input asp-for="fname" class="form-control">
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="lname" class="form-label"></label>
+        <input asp-for="lname" class="form-control">
+
+    </div>
+    <div class="mb-3 form-check">
+        <div class="mb-3">
+            <label asp-for="Bdate" class="form-label"></label>
+            <input type="date"  asp-for="Bdate" class="form-control">
+
+        </div>>
+    </div>
+
+    <div class="mb-3 form-check">
+        <div class="mb-3">
+            <label  asp-for="salary" class="form-label"></label>
+            <input  asp-for="salary" class="form-control">
+            <span style="color:red" asp-validation-for="salary"></span>
+
+        </div>
+    </div>
+    <div class="mb-3 form-check">
+        <div class="mb-3">
+            <label asp-for="address" class="form-label"></label>
+            <input asp-for="address" class="form-control">
+            <span style="color:red" asp-validation-for="address"></span>
+
+        </div>>
+    </div>
+    <div class="mb-3 form-check">
+        <div class="mb-3">
+            <label asp-for="sex" class="form-label"></label>
+            <input asp-for="sex" class="form-control">
+            <span style="color:red" asp-validation-for="sex"></span>
+
+        </div>>
+    </div>
+    <div class="mb-3 form-check">
+        <div class="mb-3">
+            <label asp-for="password" class="form-label"></label>
+            <input asp-for="password" class="form-control">
+
+        </div>
+    </div>
+    <div class="mb-3 form-check">
+        <div class="mb-3">
+            <label asp-for="confirmpassword" class="form-label"></label>
+            <input asp-for="confirmpassword" class="form-control">
+
+        </div>
+    </div>
+
+    <div class="mb-3 form-check">
+        <div class="mb-3">
+            <label asp-for="superid" class="form-label"></label>
+            <input asp-for="superid" class="form-control">
+
+        </div>>
+    </div>
+    <div class="mb-3 form-check">
+        <label class="form-label">Select Department</label>
+        <select class="form-select" asp-for="Dno" asp-items="Model.departments" >
+          
+        </select>
+
+    </div>
+   
+    <input type="submit" class="btn btn-primary" value="Save"/>
+</form>
+@section script{
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

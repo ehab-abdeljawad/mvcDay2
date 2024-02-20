@@ -52,5 +52,25 @@ namespace mvcDay2.Controllers
         }
 
 
+         public IActionResult emp_proj(int id)
+        {
+
+            employee emp = context.employees.Where(e=>e.Ssn == id).SingleOrDefault();
+             List<Project> projects = context.work_Fors.Include(w => w.Project).Where(e => e.employee.Ssn == id).Select(p=>p.Project).ToList();
+               
+            ViewBag.projects = projects;
+            ViewBag.name = emp;
+            return View();
+
+
+        }
+
+        public IActionResult gethoures(int id,int id2)
+        {
+            Work_for  houres = context.work_Fors.Where(h=>h.eSsn == id2 && h.pno == id).SingleOrDefault();
+            return PartialView("_hourepartial", houres);
+        }
+
+
 	}
 }
